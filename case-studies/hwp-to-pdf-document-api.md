@@ -1,64 +1,43 @@
-# HWP/HWPX to PDF Document Workflow API
+# HWP/HWPX → PDF 문서 워크플로우 API (B04)
 
-## One-line Summary
+> 보조 기술 증명. 단독으로 GenAI 가치를 주장하지 않습니다.
 
-A concise supporting proof for packaging a Korean HWP/HWPX document-conversion workflow as a FastAPI PoC.
+## 한 줄 요약
 
-## Why It Exists
+한국 HWP/HWPX 문서 변환 워크플로우를 FastAPI PoC로 패키징한 증명입니다.
 
-Korean business workflows often depend on document formats and office automation constraints that do not fit generic web-service assumptions. A consultant still needs to package those workflows into a reviewable API or PoC surface.
+## 왜 존재하는가
 
-This mini case exists to show document workflow automation and API packaging literacy, not GenAI or RAG capability by itself.
+한국 비즈니스 워크플로우는 일반 웹 서비스 가정에 맞지 않는 문서 포맷·오피스 자동화 제약에 자주 의존합니다. 컨설턴트는 그런 워크플로우를 검토 가능한 API나 PoC 표면으로 패키징할 수 있어야 합니다. 이 미니 케이스는 그 자체로 GenAI/RAG 역량이 아니라 문서 워크플로우 자동화와 API 패키징 리터러시를 보여줍니다.
 
-## What I Built / Did
+## 무엇을 만들었나
 
-- Packaged a FastAPI-based prototype for converting HWP-family documents to PDF.
-- Framed the work around Korean document workflow automation and business-process PoC needs.
-- Documented setup, run steps, conversion flow, supported file-family scope, and platform requirements.
-- Replaced unsafe local-machine and private-network examples in public-facing documentation with safer generic wording.
-- Added public limitations around Windows, local office automation, environment review, and deployment constraints.
+- HWP 계열 문서를 PDF로 변환하는 FastAPI 기반 프로토타입을 패키징.
+- 한국 문서 워크플로우 자동화와 비즈니스 프로세스 PoC 니즈를 중심으로 프레이밍.
+- 설치, 실행 단계, 변환 흐름, 지원 파일군 범위, 플랫폼 요구사항을 문서화.
+- 공개 문서에서 안전하지 않은 로컬 머신·사설 네트워크 예시를 더 안전한 일반 표현으로 교체.
+- Windows·로컬 오피스 자동화·환경 검토·배포 제약에 대한 공개 한계를 추가.
 
-## How It Works (from the public repository)
+## 무엇을 증명하는가
 
-These details are grounded in the public repository (`hwan96-ai/hwp-to-pdf-api`) and contain no secrets, internal endpoints, or customer data.
+- 한국 문서 워크플로우를 API 형태의 PoC로 전환하는 역량.
+- 문서 변환 제약과 환경 의존성에 대한 실용적 이해.
+- 컨설팅 프로토타입에 유용한 백엔드/API 패키징 역량.
+- 민감한 로컬 경로·네트워크 예시에 대한 공개 문서 정리 판단력.
 
-- **Stack**: Python 3.12 + FastAPI (served by uvicorn). Conversion is driven through `pywin32` COM automation against a locally installed Hancom Office (한컴 오피스 2024) — there is no pure-Python HWP renderer, so the work is fundamentally Windows + office-automation bound.
-- **Platform**: designed to run on an AWS EC2 Windows Server instance (the service's own description targets "EC2 Windows"). This is a PoC host pattern, not a hardened hosted service.
-- **The core hurdle — bypassing the Hancom security dialog**: headless HWP automation normally triggers a blocking "file path security" modal that breaks server-side conversion. The converter registers a `FilePathCheckerModule` (a committed DLL) via an `HKCU` registry key plus `RegisterModule('FilePathCheckDLL', ...)` so the COM call can open files without the prompt. This registry/DLL step is the main engineering obstacle for unattended HWP→PDF on a server.
-- **Conversion flow**: instantiate the `HWPFrame.HwpObject` COM object → register the file-path-check module → `Open(input)` → set the save format to PDF (`HFileOpenSave.Format = 'PDF'`) → execute `FileSaveAs_S` → `Quit()`.
-- **Process isolation & reliability**: each request runs the converter as a separate subprocess (one COM instance per request, 120s timeout); uploaded inputs are deleted after conversion; a background thread restarts the server every 24h to contain COM/memory drift; uploads are capped at 50MB.
+## 무엇을 증명하지 않는가
 
-### API shape
+- 그 자체로의 GenAI·RAG·모델 평가 역량.
+- 프로덕션급 호스티드 변환 서비스 준비도.
+- 보안·컴플라이언스·확장성·신뢰성 완전성.
+- 고객 임팩트·채택·비용 절감.
+- 크로스플랫폼 이식성.
 
-| Method · Path | Purpose |
-| --- | --- |
-| `POST /convert` | Single multipart file → JSON `{status, job_id, pdf_filename, pdf_size_mb, conversion_time_seconds, download_url}` |
-| `POST /convert-batch` | Multiple files in one call |
-| `GET /download/{filename}` | Retrieve the generated PDF |
-| `GET /health` | Liveness check |
+## 한계
 
-Input formats: `.hwp`, `.hwpx`, `.hwt`, `.hwtx`. Interactive API docs are exposed at `/docs`.
+- Windows·로컬 오피스 의존의 플랫폼 특화 자동화.
+- 프로토타입 수준의 공개 증거.
+- 보안·배포 태세는 환경별 검토 필요.
+- 벤치마크·처리량·신뢰성·프로덕션 사용 주장 없음.
 
-## What It Proves
-
-- Ability to turn a Korean document workflow into an API-shaped PoC.
-- Practical understanding of document conversion constraints and environment dependencies.
-- Backend/API packaging skill useful for consulting prototypes.
-- Public documentation cleanup judgment for sensitive local path and network examples.
-- Supporting credibility for business workflow automation work.
-
-## What It Does Not Prove
-
-- GenAI, RAG, or model-evaluation capability by itself.
-- Production-grade hosted conversion service readiness.
-- Security, compliance, scalability, or reliability completeness.
-- Customer impact, adoption, or cost savings.
-- Cross-platform portability.
-
-## Limitations
-
-- Platform-specific automation with Windows and local office dependencies.
-- Prototype-level public evidence.
-- Security and deployment posture must be reviewed per environment.
-- No benchmark, throughput, reliability, or production usage claims.
-- CORS is wide-open (`allow_origins=['*']`) and the converter assumes a single host with Hancom installed — both are PoC-level choices that need hardening before any shared or public deployment.
+> 공개 레포 링크: owner 확인 후 추가 예정.

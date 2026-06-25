@@ -1,41 +1,40 @@
-# Quality Gates for AI-Assisted PoC Delivery
+# AI 보조 PoC 델리버리 품질 게이트 (B01)
 
-## One-line Summary
+> 보조 기술 증명. 단독으로 비즈니스 성과를 주장하지 않습니다.
 
-A supporting proof for human-reviewed AI-assisted PoC delivery, using local quality gates and audit-first handoff discipline.
+## 한 줄 요약
 
-## Why It Exists
+로컬 품질 게이트와 감사(audit) 우선 핸드오프 규율로, 사람이 검토하는 AI 보조 PoC 델리버리를 뒷받침하는 증명입니다.
 
-AI coding tools can generate changes quickly, but speed alone is not a consulting proof. For customer-facing PoC work, the stronger signal is whether AI-assisted delivery can be bounded, reviewed, and handed off without implying automatic push, merge, deploy, or production readiness.
+## 왜 존재하는가
 
-This mini case exists to show delivery-process judgment: PRD review, code review, design review, release readiness, safety hooks, and audit-only operation before any fix path.
+AI 코딩 도구는 변경을 빠르게 만들어내지만, 속도만으로는 컨설팅 증거가 되지 않습니다. 고객 대상 PoC 작업에서 더 강한 신호는 — AI 보조 델리버리가 **경계 안에서 검토·핸드오프 가능한지**, 그리고 자동 push·merge·deploy·프로덕션 준비 완료를 암시하지 않는지입니다. 이 미니 케이스는 PRD 검토, 코드 검토, 디자인 검토, 릴리스 준비, 안전 훅, 그리고 수정 경로 이전의 감사 전용(audit-only) 운영이라는 델리버리 프로세스 판단력을 보여주기 위해 존재합니다.
 
-## What I Built / Did
+## 무엇을 만들었나
 
-- Packaged a local quality-gate workflow around AI-assisted delivery sessions.
-- Framed the workflow as PRD, code, design, and release gates rather than an autonomous coding agent.
-- Emphasized audit-only mode, human review, no automatic push, no automatic merge, and no automatic deploy.
-- Documented install, doctor checks, safety model, quality-gate behavior, and release verification.
-- Kept the public positioning focused on responsible handoff discipline instead of leading with "vibe coding."
+- AI 보조 델리버리 세션을 감싸는 로컬 품질 게이트 워크플로우를 패키징.
+- 자율 코딩 에이전트가 아니라 PRD·코드·디자인·릴리스 게이트로 워크플로우를 구성.
+- 감사 전용 모드, 사람 검토, 자동 push·merge·deploy 없음을 강조.
+- 설치, doctor 점검, 안전 모델, 품질 게이트 동작, 릴리스 검증을 문서화.
+- 공개 포지셔닝을 "바이브 코딩"이 아니라 책임 있는 핸드오프 규율에 맞춤.
 
-## What It Proves
+## 무엇을 증명하는가
 
-- Ability to design guardrails around AI-assisted PoC delivery.
-- Awareness that AI-generated code needs review gates, rollback thinking, and human ownership.
-- Documentation discipline for public developer tooling.
-- Technical packaging across scripts, tests, release checks, and safety documentation.
-- Supporting process credibility for GenAI consulting workflows.
+- AI 보조 PoC 델리버리에 가드레일을 설계하는 역량.
+- AI 생성 코드에 검토 게이트·롤백 사고·사람 소유권이 필요하다는 인식.
+- 공개 개발자 도구에 대한 문서화 규율.
 
-## What It Does Not Prove
+## 무엇을 증명하지 않는가
 
-- Customer impact or business outcomes.
-- Production engineering quality for a customer system.
-- That every AI-generated issue will be caught.
-- GenAI solution delivery by itself.
-- Hosted platform, compliance certification, or enterprise workflow maturity.
+- 고객 임팩트나 비즈니스 성과.
+- 고객 시스템에 대한 프로덕션 엔지니어링 품질.
+- 모든 AI 생성 이슈가 잡힌다는 보장.
+- GenAI 솔루션 델리버리 그 자체.
 
-## Limitations
+## 한계
 
-- Public tooling proof, not client delivery.
-- Workflow and guardrail evidence, not measurable productivity impact.
-- Depends on local developer setup and human review.
+- 고객 델리버리가 아니라 공개 도구 증명.
+- 측정 가능한 생산성 임팩트가 아니라 워크플로우·가드레일 증거.
+- 로컬 개발 환경 설정과 사람 검토에 의존.
+
+> 공개 레포 링크: owner 확인 후 추가 예정.

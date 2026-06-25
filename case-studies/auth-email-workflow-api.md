@@ -1,42 +1,42 @@
-# Reusable Auth Email Workflow API
+# 재사용 가능한 인증 메일 워크플로우 API (B03)
 
-## One-line Summary
+> 보조 기술 증명. 단독으로 GenAI 가치를 주장하지 않습니다.
 
-A concise supporting proof for packaging a reusable auth-email workflow as a Python/FastAPI service and library.
+## 한 줄 요약
 
-## Why It Exists
+재사용 가능한 인증 메일 워크플로우를 Python/FastAPI 서비스이자 라이브러리로 패키징한 백엔드 증명입니다.
 
-Many PoCs need small operational services around the core AI workflow: authentication emails, status notifications, callbacks, or simple internal gateways. This case supports backend/API credibility by showing a reusable auth-email service boundary.
+## 왜 존재하는가
 
-It is not a GenAI case by itself. Its value is implementation literacy: packaging a narrowly scoped workflow so other applications can call it safely.
+많은 PoC는 핵심 AI 워크플로우 주변에 작은 운영 서비스를 필요로 합니다 — 인증 메일, 상태 알림, 콜백, 단순 내부 게이트웨이 등. 이 케이스는 재사용 가능한 인증 메일 서비스 경계를 보여주며 백엔드/API 신뢰도를 뒷받침합니다. 그 자체로 GenAI 케이스는 아니며, 가치는 구현 리터러시 — 좁게 정의된 워크플로우를 다른 애플리케이션이 안전하게 호출할 수 있도록 패키징하는 것 — 에 있습니다.
 
-## What I Built / Did
+## 무엇을 만들었나
 
-- Packaged an auth-email relay that can run as an internal HTTP service or Python library.
-- Documented support for common auth-email flows such as magic links, OTP messages, password-reset messages, and templated mail.
-- Included FastAPI-oriented service packaging, client usage, examples, configuration docs, operations notes, and tests.
-- Documented trust boundaries: the relay sends email but does not own token generation, session handling, or user management.
-- Added security and deployment guidance around internal use, rate limiting, metrics, secrets, and operational safeguards.
+- 내부 HTTP 서비스 또는 Python 라이브러리로 실행 가능한 인증 메일 릴레이를 패키징.
+- 매직 링크, OTP 메시지, 비밀번호 재설정 메시지, 템플릿 메일 같은 일반 인증 메일 흐름 지원을 문서화.
+- FastAPI 지향 서비스 패키징, 클라이언트 사용법, 예제, 설정 문서, 운영 노트, 테스트 포함.
+- 신뢰 경계 명시: 릴레이는 메일을 보내되 토큰 생성·세션 처리·사용자 관리는 소유하지 않음.
+- 내부 사용·레이트 리밋·메트릭·시크릿·운영 안전장치에 대한 보안·배포 가이드 추가.
 
-## What It Proves
+## 무엇을 증명하는가
 
-- Backend/API literacy useful for packaging PoCs.
-- Ability to define service boundaries and operational responsibilities.
-- Practical Python/FastAPI documentation and example-writing skill.
-- Awareness of auth-email security boundaries and deployment caveats.
-- Supporting technical credibility for customer-facing solution work.
+- PoC 패키징에 유용한 백엔드/API 리터러시.
+- 서비스 경계와 운영 책임을 정의하는 역량.
+- 실용적인 Python/FastAPI 문서·예제 작성 능력.
+- 인증 메일 보안 경계와 배포 주의점에 대한 인식.
 
-## What It Does Not Prove
+## 무엇을 증명하지 않는가
 
-- GenAI consulting value by itself.
-- Production deliverability, SLA, managed-email quality, or security completeness.
-- Full authentication platform capability.
-- Customer adoption, business impact, or revenue.
-- Suitability for public internet exposure without additional review.
+- 그 자체로의 GenAI 컨설팅 가치.
+- 프로덕션 전달성·SLA·관리형 메일 품질·보안 완전성.
+- 완전한 인증 플랫폼 역량.
+- 고객 채택·비즈니스 임팩트·매출.
 
-## Limitations
+## 한계
 
-- Not a GenAI or RAG capability proof.
-- Internal-service framing needs careful public wording.
-- Production deployment would require environment-specific security, monitoring, and operational review.
-- Public examples must avoid real domains, credentials, logs, endpoints, or customer data.
+- GenAI나 RAG 역량 증명이 아님.
+- 내부 서비스 프레이밍이라 공개 표현에 주의 필요.
+- 프로덕션 배포는 환경별 보안·모니터링·운영 검토 필요.
+- 공개 예제는 실제 도메인·자격증명·로그·엔드포인트·고객 데이터를 포함하지 않아야 함.
+
+> 공개 레포 링크: owner 확인 후 추가 예정.

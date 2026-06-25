@@ -1,22 +1,31 @@
-# Case Studies (Public)
+# Case Studies (Public Markdown)
 
-GenAI engineering & delivery case studies — the public-safe subset.
+Canonical public Markdown collection for GenAI consulting, PoC delivery, and engineering case studies.
 
-> **Status: review candidate (local build, not yet published).**
-> Automated privacy checks pass — no secrets, no private repo names, no customer names; 5/5 cases whitelisted. **Two gates remain, both owner-only:** content review, then a publish decision. This repository is **not connected to any remote.**
+> **Status: canonical public Markdown repo.** This repository is the maintained public Markdown surface for reviewed case-study copy. The private approval/source-of-truth repository remains the authority for approvals; public website rendering lives in hwan96-ai/genai-case-study-showcase.
 
-## Cases
+## Lead Cases
 
-| Case | Summary | Public source repo |
-| --- | --- | --- |
-| Korean TTS evaluation criteria design | Designing the *criteria* (not just picking a model) for smart-home wall-pad voice guidance; 6 engines benchmarked under one harness, led to a real customer contract. | <https://github.com/hwan96-ai/korean-tts-benchmark> |
-| Quality gates for AI-assisted PoC delivery | A local quality-gate workflow + audit-first handoff discipline around AI-assisted delivery. | _(link pending owner confirmation)_ |
-| Preview-first AI coding harness | Dry-run / preview-first AI-assisted implementation handoff, human opt-in before any execution. | _(link pending owner confirmation)_ |
-| Reusable auth email workflow API | Packaging an auth-email relay as a Python/FastAPI service and library. | _(link pending owner confirmation)_ |
-| HWP/HWPX to PDF document workflow API | A Korean HWP-family document-conversion workflow packaged as a FastAPI PoC. | _(link pending owner confirmation)_ |
+| Case | Summary |
+| --- | --- |
+| [A02 - Korean TTS evaluation criteria design](case-studies/korean-tts-evaluation.md) | Korean TTS evaluation criteria and benchmark harness for smart-home wall-pad voice guidance, with customer name kept anonymous. |
+| [A07 - Sapie Reco batch recommendation delivery](case-studies/sapie-reco-batch-recommendation.md) | idus(backpackr) LLM batch recommendation delivery lead work, with direct RAG core and PoC chatbot work called out separately from team implementation. |
+| [A08 - Yeonsung admissions chatbot backend](case-studies/yeonsung-admissions-chatbot.md) | Yeonsung University admissions chatbot and SAPiE multi-tenant RAG backend, including the approved public service URL. |
 
-Each page lives under [`case-studies/`](case-studies/).
+## Supporting Proofs
 
-## Scope & honesty
+| Case | Summary |
+| --- | --- |
+| [B01 - AI-assisted PoC delivery quality gates](case-studies/ai-assisted-poc-quality-gates.md) | Human-reviewed quality-gate workflow for AI-assisted PoC delivery. |
+| [B02 - Preview-first AI coding harness](case-studies/preview-first-ai-coding-harness.md) | Dry-run and review-before-execution handoff pattern for AI-assisted implementation. |
+| [B03 - Auth email workflow API](case-studies/auth-email-workflow-api.md) | Reusable authentication-email workflow packaged as a Python/FastAPI service and library. |
+| [B04 - HWP/HWPX to PDF document workflow API](case-studies/hwp-to-pdf-document-api.md) | Korean HWP-family document conversion workflow packaged as a public-safe supporting proof. |
 
-These are a consultant's engineering/delivery proofs. The supporting cases (auth email, document conversion, AI-assisted delivery harnesses) are framed as **process and implementation literacy**, not as flagship GenAI outcomes. Customer names, where any exist, are kept anonymous; metrics are self-measured benchmarks with stated caveats.
+## Public Safety Scope
+
+- Do not add non-public system identifiers, non-public links, confidential operational material, access material, personal data, or unapproved customer names.
+- Do not invent metrics or outcomes. A07 has no public CTR/conversion/revenue claim; A08 has no traffic, accuracy, or consultation-count claim.
+- Approved public names are intentionally narrow: Sapie Reco, idus(backpackr), Yeonsung University, SAPiE, Kakao i, and the single A08 service URL https://yeonsung.sapie.ai/.
+- Supporting proofs demonstrate implementation and delivery literacy; they are not standalone business-impact claims.
+
+Language status: Korean-first case copy with selected English supporting cases. A future English edition should be reviewed against the private SSOT before publication.
