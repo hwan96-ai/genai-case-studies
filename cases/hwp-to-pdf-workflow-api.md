@@ -1,4 +1,4 @@
-# HWP/HWPX → PDF 문서 워크플로우 API (B04)
+# HWP/HWPX → PDF 문서 워크플로우 API
 
 > 보조 기술 증명. 단독으로 GenAI 가치를 주장하지 않습니다.
 
