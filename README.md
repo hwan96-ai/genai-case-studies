@@ -8,7 +8,7 @@ GenAI 솔루션 델리버리와 사전 검증(PoC)에서 직접 수행한 작업
 | --- | --- |
 | [A02 — 한국어 TTS 평가 기준 설계](cases/a02-korean-tts-evaluation.md) | 스마트홈 월패드 음성 안내용 한국어 TTS 6종을 "기준 먼저, 측정은 그 다음" 방식으로 실측 비교 → 실제 고객 계약으로 연결 |
 | [A07 — Sapie Reco LLM 배치 추천 엔진 델리버리](cases/a07-sapie-reco-batch-recommendation.md) | idus(backpackr) 대상 LLM 기반 야간 배치 상품 추천 엔진 델리버리 총괄 + RAG 코어·PoC 챗봇 직접 구현 (상용 출시) |
-| [A08 — public organization 입학상담 챗봇 + 멀티테넌트 RAG 백엔드](cases/a08-yeonsung-admissions-chatbot.md) | FastAPI RAG 백엔드를 단독 설계·구현·운영한 실서비스 ([yeonsung.sapie.ai](https://yeonsung.sapie.ai/)) |
+| [A08 — 공개 교육기관 입학상담 챗봇 + 멀티테넌트 RAG 백엔드](cases/a08-yeonsung-admissions-chatbot.md) | FastAPI RAG 백엔드를 단독 설계·구현·운영한 실서비스. 공개 표시명은 승인 메타데이터가 갱신될 때까지 익명화합니다. |
 
 ## 보조 기술 증명
 
@@ -26,6 +26,6 @@ GenAI 솔루션 델리버리와 사전 검증(PoC)에서 직접 수행한 작업
 - **수치를 지어내지 않습니다.** 보유하지 않은 정량 성과(전환율·CTR·상담 건수 등)는 주장하지 않습니다.
 - **역할 경계를 명시합니다.** 총괄/리드한 부분과 직접 구현한 부분, 팀 작업을 구분합니다.
 - **고객 소스 코드는 비공개입니다.** 공개 근거는 출시 보도자료·운영 URL·본인 보유 공개 레포로 한정합니다.
-- 실명 사용(예: idus·public organization·SAPiE)은 공개 승인 범위 안에서만 사용했습니다.
+- 공개 이름·URL은 현재 승인 메타데이터가 있는 범위에서만 사용합니다. A08 조직 표시명은 승인 갱신 전까지 `공개 교육기관`으로 익명화합니다.
 
-> 언어: 현재 한국어 우선. 영어판은 추후 별도로 정리할 예정입니다. (A02·A07·A08 한국어 / B01–B04 영어 — 통일판은 다음 단계)
+> 언어: 현재 A02·A07·A08과 B01–B04 모두 한국어입니다. 영어판은 별도 산출물로 추가할 때 이 안내를 갱신합니다.
